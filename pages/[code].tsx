@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps<{
   }
 
   return {
-    redirect: {destination: '/not-found', permanent: false},
+    notFound: true,
   };
 };
 

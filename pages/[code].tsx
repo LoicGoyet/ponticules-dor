@@ -72,7 +72,7 @@ const results: Record<string, Result> = {
   },
   çJfn7h: {
     winnerTitle: 'Ed',
-    category: 'Meilleur second rôle ',
+    category: 'Meilleur second rôle',
   },
   'àKv!9': {
     winnerTitle: 'La bague de Raphy',

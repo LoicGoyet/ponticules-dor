@@ -29,7 +29,7 @@ const Code = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <Main>
-      <Enveloppe winnerTitle={winnerTitle} />
+      <Enveloppe winnerTitle={winnerTitle} category={category} />
     </Main>
   );
 };

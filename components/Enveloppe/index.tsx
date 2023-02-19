@@ -5,9 +5,10 @@ import styled from 'styled-components';
 type Props = {
   className?: string;
   winnerTitle: string;
+  category: string;
 };
 
-const Enveloppe = ({className, winnerTitle}: Props) => {
+const Enveloppe = ({className, winnerTitle, category}: Props) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const jsConfetti = React.useRef<JSConfetti | null>(null);
 
@@ -39,7 +40,10 @@ const Enveloppe = ({className, winnerTitle}: Props) => {
           <MiddlePlanLeft />
           <MiddlePlanRight />
         </MiddlePlan>
-        <Letter style={{'--translateY': isOpen ? '-65%' : '0%'}}>{winnerTitle}</Letter>
+        <Letter style={{'--translateY': isOpen ? '-65%' : '0%'}}>
+          <LetterHeader>{category}</LetterHeader>
+          {winnerTitle}
+        </Letter>
       </Wrapper>
     </React.Fragment>
   );
@@ -160,7 +164,7 @@ const Letter = styled.div<{
 }>`
   --width: ${fromNumberToPixels(width - 20)};
   --height: ${fromNumberToPixels(height - 20)};
-  --padding: 30px;
+  --padding: 15px;
 
   position: absolute;
   background-color: white;
@@ -185,8 +189,18 @@ const Letter = styled.div<{
   &::before {
     content: '';
     position: absolute;
-    width: calc(var(--width) - var(--padding));
-    height: calc(var(--height) - var(--padding));
+    width: calc(var(--width) - calc(var(--padding) * 2));
+    height: calc(var(--height) - calc(var(--padding) * 2));
     border: 2px solid;
   }
+`;
+
+const LetterHeader = styled.div`
+  position: absolute;
+  top: var(--padding);
+  font-size: 0.6rem;
+  letter-spacing: 0.025rem;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 0.5rem;
 `;

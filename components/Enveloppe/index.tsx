@@ -1,6 +1,10 @@
 import JSConfetti from 'js-confetti';
 import * as React from 'react';
 import styled from 'styled-components';
+import {fromNumberToPixels} from '../../utils/fromNumberToPixels';
+import {fromNumberToSeconds} from '../../utils/fromNumberToSeconds';
+import {getHypotenuse} from '../../utils/getHypotenuse';
+import Card from '../Card';
 
 type Props = {
   className?: string;
@@ -40,20 +44,12 @@ const Enveloppe = ({className, winnerTitle, category}: Props) => {
           <MiddlePlanLeft />
           <MiddlePlanRight />
         </MiddlePlan>
-        <Letter style={{'--translateY': isOpen ? '-65%' : '0%'}}>
-          <LetterHeader>{category}</LetterHeader>
+        <Letter style={{'--translateY': isOpen ? '-65%' : '0%'}} header={category}>
           {winnerTitle}
         </Letter>
       </Wrapper>
     </React.Fragment>
   );
-};
-
-const fromNumberToPixels = (number: number) => `${number}px`;
-const fromNumberToSeconds = (number: number) => `${number}s`;
-
-const getHypotenuse = (width: number, height: number) => {
-  return Math.sqrt(width * width + height * height);
 };
 
 const width = 500;
@@ -158,18 +154,15 @@ const MiddlePlanRight = styled.div`
   z-index: 0;
 `;
 
-const Letter = styled.div<{
+const Letter = styled(Card)<{
   style: {
     '--translateY': `${number}%`;
   };
 }>`
   --width: ${fromNumberToPixels(width - 20)};
   --height: ${fromNumberToPixels(height - 20)};
-  --padding: 15px;
 
   position: absolute;
-  background-color: white;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   width: var(--width);
   height: var(--height);
   top: calc(50% - ${fromNumberToPixels(height / 2 - 10)});
@@ -183,26 +176,5 @@ const Letter = styled.div<{
   transition-timing-function: ease-in-out;
   transition-delay: var(--forefront-animation-duration);
   transition-duration: var(--letter-animation-duration);
-  border-radius: 8px;
-  font-size: 1.25rem;
-  padding: calc(var(--padding) * 2);
   will-change: transform;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: calc(var(--width) - calc(var(--padding) * 2));
-    height: calc(var(--height) - calc(var(--padding) * 2));
-    border: 2px solid;
-  }
-`;
-
-const LetterHeader = styled.div`
-  position: absolute;
-  top: var(--padding);
-  font-size: 0.6rem;
-  letter-spacing: 0.025rem;
-  transform: translateY(-50%);
-  background-color: white;
-  padding: 0 0.5rem;
 `;

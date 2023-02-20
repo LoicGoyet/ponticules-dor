@@ -5,6 +5,7 @@ import {Result} from '../../data/results';
 import {unwrapDate} from '../../pages/[code]';
 import Card from '../Card';
 import Button from '../Button';
+import {formatOrdinals} from '../../utils/getTextualPosition';
 
 type Props = {
   className?: string;
@@ -59,6 +60,10 @@ const WelcomeLetter = ({className, result}: Props) => {
                 minute: 'numeric',
               })}
               .
+            </p>
+            <p>
+              La catégorie «{result.category}» sera la {formatOrdinals(result.order)}{' '}
+              décernée durant la soirée.
             </p>
             <p>
               Ci-joint à cette lettre, vous trouverez une enveloppe rouge contenant le

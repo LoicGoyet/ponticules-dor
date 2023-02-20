@@ -1,6 +1,8 @@
 export type Result = {
+  id: string;
   winnerTitle: string;
   category: string;
+  order: number;
   remitter: {
     name: string;
     gender: 'male' | 'female' | 'other';
@@ -17,6 +19,8 @@ export const getResult = (code: unknown) => {
 
 const results: Record<string, Result> = {
   jvh9fuc: {
+    id: 'jvh9fuc',
+    order: 1,
     category: 'Le plus gros coup dur concept art / réalisation',
     winnerTitle: 'Disney’s KiteTails',
     remitter: {
@@ -25,6 +29,8 @@ const results: Record<string, Result> = {
     },
   },
   'àKv!9': {
+    id: 'àKv!9',
+    order: 2,
     category: 'Le drama de l’année',
     winnerTitle: 'La bague de Raphy',
     remitter: {
@@ -33,6 +39,8 @@ const results: Record<string, Result> = {
     },
   },
   '8jdh5c': {
+    id: '8jdh5c',
+    order: 3,
     category: 'La hot-take la plus éclatée de l’année',
     winnerTitle:
       '« "Rêvons... et le Monde s’Illumine" est un mauvais show car il compte seulement XX danseurs et personnages »- éParcurien',
@@ -42,6 +50,8 @@ const results: Record<string, Result> = {
     },
   },
   '9jfbhGk': {
+    id: '9jfbhGk',
+    order: 4,
     category: 'La Mackerie de l’année',
     winnerTitle: 'L’accouchement de Sandy en vidéo',
     remitter: {
@@ -50,6 +60,8 @@ const results: Record<string, Result> = {
     },
   },
   DKçJf: {
+    id: 'DKçJf',
+    order: 5,
     category: 'La meilleur « apparition dans une vidéo » de l’année',
     winnerTitle:
       'La personne qui ressemble à Coco dans le flashmob Pirates & Princesses de AAD',
@@ -59,6 +71,8 @@ const results: Record<string, Result> = {
     },
   },
   kco9jfh: {
+    id: 'kco9jfh',
+    order: 6,
     category: 'Le melon de l’année',
     winnerTitle: 'Allyyy',
     remitter: {
@@ -67,6 +81,8 @@ const results: Record<string, Result> = {
     },
   },
   '0!fj8j': {
+    id: '0!fj8j',
+    order: 7,
     category: 'Le pire produit food / la pire dégustation de l’année',
     winnerTitle: 'La dégustation du Krusty Burger par le mec dégueulasse',
     remitter: {
@@ -75,6 +91,8 @@ const results: Record<string, Result> = {
     },
   },
   çJfn7h: {
+    id: 'çJfn7h',
+    order: 8,
     category: 'Meilleur second rôle',
     winnerTitle: 'Ed',
     remitter: {
@@ -83,6 +101,8 @@ const results: Record<string, Result> = {
     },
   },
   '8jf,c!': {
+    id: '8jf,c!',
+    order: 9,
     category: 'La meilleure "mascotte à la con" de l’année',
     winnerTitle: 'Arthur',
     remitter: {
@@ -91,6 +111,8 @@ const results: Record<string, Result> = {
     },
   },
   Oj9d: {
+    id: 'Oj9d',
+    order: 10,
     category: 'La pire disasterclass de l’année',
     winnerTitle: 'Le voyage à WDW de Sami',
     remitter: {
@@ -99,6 +121,8 @@ const results: Record<string, Result> = {
     },
   },
   '9jfàjH': {
+    id: '9jfàjH',
+    order: 11,
     category: 'La plus grosse glissade de l’année',
     winnerTitle: 'Le compte Twitter de Vrogui',
     remitter: {
@@ -107,6 +131,8 @@ const results: Record<string, Result> = {
     },
   },
   kdh8hf: {
+    id: 'kdh8hf',
+    order: 12,
     category: 'Le connard / la connasse de l’année',
     winnerTitle: 'Léatchoum',
     remitter: {

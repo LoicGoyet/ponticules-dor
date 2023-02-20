@@ -26,15 +26,18 @@ const Wrapper = styled.div`
   background-color: white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   font-size: 1.25rem;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: calc(var(--padding) * 2);
 
   &::before {
     content: '';
     position: absolute;
-    width: calc(var(--width) - calc(var(--padding) * 2));
-    height: calc(var(--height) - calc(var(--padding) * 2));
+    width: calc(100% - calc(var(--padding) * 2));
+    height: calc(100% - calc(var(--padding) * 2));
     border: 2px solid;
+    top: var(--padding);
+    left: var(--padding);
+    pointer-events: none;
   }
 `;
 

@@ -1,6 +1,7 @@
 import JSConfetti from 'js-confetti';
 import * as React from 'react';
 import styled from 'styled-components';
+import {Result} from '../../data/results';
 import {fromNumberToPixels} from '../../utils/fromNumberToPixels';
 import {fromNumberToSeconds} from '../../utils/fromNumberToSeconds';
 import {getHypotenuse} from '../../utils/getHypotenuse';
@@ -8,11 +9,10 @@ import Card from '../Card';
 
 type Props = {
   className?: string;
-  winnerTitle: string;
-  category: string;
+  result: Result;
 };
 
-const Enveloppe = ({className, winnerTitle, category}: Props) => {
+const Enveloppe = ({className, result}: Props) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const jsConfetti = React.useRef<JSConfetti | null>(null);
 
@@ -44,8 +44,11 @@ const Enveloppe = ({className, winnerTitle, category}: Props) => {
           <MiddlePlanLeft />
           <MiddlePlanRight />
         </MiddlePlan>
-        <Letter style={{'--translateY': isOpen ? '-65%' : '0%'}} header={category}>
-          {winnerTitle}
+        <Letter
+          style={{'--translateY': isOpen ? '-65%' : '0%'}}
+          header={result.category}
+        >
+          {result.winnerTitle}
         </Letter>
       </Wrapper>
     </React.Fragment>

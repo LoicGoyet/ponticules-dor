@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {Result} from '../../data/results';
 import {unwrapDate} from '../../pages/[code]';
 import Card from '../Card';
+import Button from '../Button';
 
 type Props = {
   className?: string;
@@ -11,8 +12,20 @@ type Props = {
 };
 
 const WelcomeLetter = ({className, result}: Props) => {
+  const [shouldBeVisible, setShouldBeVisible] = React.useState(true);
+  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setShouldBeVisible(false);
+  };
+
   return (
-    <Letter className={className}>
+    <Letter
+      className={className}
+      style={{
+        '--opacity': shouldBeVisible ? 1 : 0,
+        '--pointerEvents': shouldBeVisible ? 'initial' : 'none',
+        '--translateY': shouldBeVisible ? '0' : '-30px',
+      }}
+    >
       <Container>
         <Grid>
           <ShipperHeader>
@@ -113,6 +126,9 @@ const WelcomeLetter = ({className, result}: Props) => {
             <br />
             présidente de l&apos;Académie des Ponticules d&apos;Or
           </Signature>
+          <EnveloppeButton onClick={handleButtonClick}>
+            Voir l&apos;enveloppe
+          </EnveloppeButton>
         </Grid>
       </Container>
     </Letter>
@@ -121,7 +137,13 @@ const WelcomeLetter = ({className, result}: Props) => {
 
 export default WelcomeLetter;
 
-const Letter = styled(Card)`
+const Letter = styled(Card)<{
+  style: {
+    '--opacity': number;
+    '--pointerEvents': string;
+    '--translateY': string;
+  };
+}>`
   --padding: 2rem;
   position: fixed;
   z-index: 4;
@@ -129,6 +151,12 @@ const Letter = styled(Card)`
   max-width: 60rem;
   max-height: calc(100vh - 2rem);
   padding: 0;
+  opacity: var(--opacity);
+  pointer-events: var(--pointerEvents);
+  transform: translateY(var(--translateY));
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
 `;
 
 const Container = styled.div`
@@ -176,4 +204,9 @@ const Signature = styled.div`
   flex-direction: column;
   align-self: flex-end;
   text-align: center;
+`;
+
+const EnveloppeButton = styled(Button)`
+  margin: 5rem 0 5rem;
+  align-self: center;
 `;

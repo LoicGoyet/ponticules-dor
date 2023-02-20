@@ -2,11 +2,15 @@ import type {GetServerSideProps, InferGetServerSidePropsType, NextPage} from 'ne
 import styled from 'styled-components';
 import Enveloppe from '../components/Enveloppe';
 
+const unwrapDate = new Date('2023-02-23T21:00:00.000+01:00');
+
 export const getServerSideProps: GetServerSideProps<{
   winnerTitle: Result['winnerTitle'];
   category: Result['category'];
+  isAllowedToUnwrap: boolean;
 }> = async (context) => {
   const {code} = context.query;
+  const isAllowedToUnwrap = new Date().getTime() > unwrapDate.getTime();
 
   if (typeof code === 'string' && code in results) {
     const {winnerTitle, category} = results[code];
@@ -14,6 +18,7 @@ export const getServerSideProps: GetServerSideProps<{
       props: {
         winnerTitle,
         category,
+        isAllowedToUnwrap,
       },
     };
   }
@@ -26,7 +31,17 @@ export const getServerSideProps: GetServerSideProps<{
 const Code = ({
   winnerTitle,
   category,
+  isAllowedToUnwrap,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  console.log({
+    isAllowedToUnwrap,
+    unwrapDate: unwrapDate.toLocaleDateString('fr-FR', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }),
+  });
   return (
     <Main>
       <Enveloppe winnerTitle={winnerTitle} category={category} />

@@ -104,6 +104,7 @@ const Forefront = styled.div<{
   transition-timing-function: ease-in-out;
   transition-delay: 0ms, var(--forefront-animation-duration);
   transition-duration: var(--forefront-animation-duration), 0ms;
+  will-change: transform, z-index;
 `;
 
 const ForefrontTop = styled.div`
@@ -185,6 +186,7 @@ const Letter = styled.div<{
   border-radius: 8px;
   font-size: 1.25rem;
   padding: calc(var(--padding) * 2);
+  will-change: transform;
 
   &::before {
     content: '';

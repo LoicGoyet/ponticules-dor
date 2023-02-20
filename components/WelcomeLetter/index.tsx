@@ -41,7 +41,10 @@ const WelcomeLetter = ({className, result}: Props) => {
             des Ponticules d&apos;Or
           </Subject>
           <Body>
-            <p>{result.remitter.gender === 'female' ? 'Madame' : 'Monsieur'},</p>
+            <p>
+              {result.remitter.gender === 'female' ? 'Madame' : 'Monsieur'}{' '}
+              {result.remitter.name},
+            </p>
             <p>
               J&apos;ai l&apos;honneur de vous annoncer que vous avez été{' '}
               {result.remitter.gender === 'female' ? 'désignée' : 'désigné'} par

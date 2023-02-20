@@ -45,7 +45,7 @@ const results: Record<string, Result> = {
     winnerTitle:
       '« "Rêvons... et le Monde s’Illumine" est un mauvais show car il compte seulement XX danseurs et personnages »- éParcurien',
     remitter: {
-      name: 'Pepper',
+      name: 'Peppermint',
       gender: 'female',
     },
   },
@@ -55,7 +55,7 @@ const results: Record<string, Result> = {
     category: 'La Mackerie de l’année',
     winnerTitle: 'L’accouchement de Sandy en vidéo',
     remitter: {
-      name: 'Vincent',
+      name: 'Vincenfr',
       gender: 'male',
     },
   },

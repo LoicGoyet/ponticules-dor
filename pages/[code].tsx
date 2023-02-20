@@ -8,17 +8,14 @@ export const unwrapDate = new Date('2023-02-23T21:00:00.000+01:00');
 
 export const getServerSideProps: GetServerSideProps<{
   result: Result;
-  isAllowedToUnwrap: boolean;
 }> = async (context) => {
   const {code} = context.query;
 
   try {
     const result = getResult(code);
-    const isAllowedToUnwrap = new Date().getTime() > unwrapDate.getTime();
     return {
       props: {
         result,
-        isAllowedToUnwrap,
       },
     };
   } catch {
@@ -28,10 +25,7 @@ export const getServerSideProps: GetServerSideProps<{
   }
 };
 
-const Code = ({
-  result,
-  isAllowedToUnwrap,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Code = ({result}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <Main>
       <WelcomeLetter result={result} />

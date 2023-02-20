@@ -6,6 +6,7 @@ import {fromNumberToPixels} from '../../utils/fromNumberToPixels';
 import {fromNumberToSeconds} from '../../utils/fromNumberToSeconds';
 import {getHypotenuse} from '../../utils/getHypotenuse';
 import Card from '../Card';
+import {unwrapDate} from '../../pages/[code]';
 
 type Props = {
   className?: string;
@@ -14,9 +15,18 @@ type Props = {
 
 const Enveloppe = ({className, result}: Props) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [error, setError] = React.useState('');
   const jsConfetti = React.useRef<JSConfetti | null>(null);
 
   const handleOpenButton = (e: React.MouseEvent<HTMLDivElement>) => {
+    setError('');
+    const isAllowedToUnwrap = new Date().getTime() > unwrapDate.getTime();
+
+    if (!isAllowedToUnwrap) {
+      setError("Il n'est pas encore l'heure de révéler le gagnant !");
+      return;
+    }
+
     if (!jsConfetti.current) {
       jsConfetti.current = new JSConfetti();
     }
@@ -29,8 +39,27 @@ const Enveloppe = ({className, result}: Props) => {
   };
 
   return (
-    <React.Fragment>
-      <Wrapper className={className} role="button" onClick={handleOpenButton}>
+    <Wrapper>
+      <Header>
+        Les étapes pour remettre le Ponticule d&apos;Or :
+        <ol>
+          <li>
+            Tristan vous présentera en tant que remettant du prix «{result.category}».
+          </li>
+          <li>Votre discour</li>
+          <li>
+            <i>Pour la categorie «{result.category}», les nommé·e·s sont :</i>
+          </li>
+          <li>
+            <i>
+              Et la·le lauréat·e du Ponticule d&apos;Or pour la catégorie «
+              {result.category}» est :
+            </i>
+          </li>
+          <li>Ouvrez l&apos;enveloppe et annoncez le nom du lauréat</li>
+        </ol>
+      </Header>
+      <EnvWrapper className={className} role="button" onClick={handleOpenButton}>
         <Forefront
           style={{
             '--rotation': isOpen ? '-180deg' : '0deg',
@@ -50,8 +79,9 @@ const Enveloppe = ({className, result}: Props) => {
         >
           {result.winnerTitle}
         </Letter>
-      </Wrapper>
-    </React.Fragment>
+      </EnvWrapper>
+      {!!error ? <Error>{error}</Error> : null}
+    </Wrapper>
   );
 };
 
@@ -63,6 +93,37 @@ const letterAnimationDuration = 2;
 export default Enveloppe;
 
 const Wrapper = styled.div`
+  position: relative;
+`;
+
+const Header = styled.div`
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 2rem;
+  color: grey;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em;
+  left: -4rem;
+  right: -4rem;
+  width: calc(100% + 8rem);
+
+  ol {
+    text-align: left;
+    margin-top: 1rem;
+  }
+`;
+
+const Error = styled.div`
+  position: absolute;
+  top: 100%;
+  margin-top: 2rem;
+  color: white;
+  width: 100%;
+  text-align: center;
+`;
+
+const EnvWrapper = styled.div`
   --forefront-animation-duration: ${fromNumberToSeconds(forefrontAnimationDuration)};
   --letter-animation-duration: ${fromNumberToSeconds(letterAnimationDuration)};
   background-color: #ed4135;

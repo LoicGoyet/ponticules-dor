@@ -66,6 +66,9 @@ const Enveloppe = ({className, result}: Props) => {
             '--z-index': isOpen ? 1 : 3,
           }}
         >
+          <ForefrontLabel style={{'--z-index': isOpen ? 3 : 4}}>
+            {result.category}
+          </ForefrontLabel>
           <ForefrontTop />
         </Forefront>
         <MiddlePlan>
@@ -165,6 +168,26 @@ const Forefront = styled.div<{
   transition-delay: 0ms, var(--forefront-animation-duration);
   transition-duration: var(--forefront-animation-duration), 0ms;
   will-change: transform, z-index;
+  transform-style: preserve-3d;
+`;
+
+const ForefrontLabel = styled.div<{style: {'--z-index': number}}>`
+  --width: 10rem;
+  position: relative;
+  width: var(--width);
+  font-size: 0.7rem;
+  top: 50%;
+  left: 50%;
+  padding: 0.25rem;
+  transform: translate(calc(var(--width) / -2), -100%);
+  z-index: var(--z-index);
+  text-align: center;
+  color: black;
+  backface-visibility: hidden;
+  transition-property: z-index;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0ms;
+  transition-duration: var(--forefront-animation-duration);
 `;
 
 const ForefrontTop = styled.div`

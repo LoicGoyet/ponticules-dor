@@ -116,7 +116,7 @@ const results: Record<string, Result> = {
     category: 'La pire disasterclass de l’année',
     winnerTitle: 'Le voyage à WDW de Sami',
     remitter: {
-      name: 'Vincent',
+      name: 'Vincenfr',
       gender: 'male',
     },
   },

@@ -88,15 +88,14 @@ const WelcomeLetter = ({className, result}: Props) => {
               </li>
               <li>
                 Avant de lister les nommé·e·s pour la categorie « {result.category} »,
-                prenez une minute pour évoquer à l&apos;audience ce que cette année, ou
-                particulièrement ce que ce prix vous évoque. N&apos;hésitez pas à faire
-                preuve d&apos;humour !
+                prenez une minute pour évoquer à l&apos;audience ce que ce prix vous
+                évoque. N&apos;hésitez pas à faire preuve d&apos;humour !
               </li>
               <li>
                 Lorsque vous aurez fini, vous pourrez introduire le clip de présentation
                 des nommé·e·s par la phrase :{' '}
                 <br />
-                <i>Pour la categorie « {result.category} », les nommé·e·s sont :</i>
+                <i>Pour la catégorie « {result.category} », les nommé·e·s sont :</i>
               </li>
               <li>
                 Une fois le clip de présentation des nommé·e·s terminé, vous pourrez

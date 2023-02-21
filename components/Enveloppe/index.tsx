@@ -118,7 +118,6 @@ const Header = styled.div`
 `;
 
 const Error = styled.div`
-  position: absolute;
   top: 100%;
   margin-top: 2rem;
   color: white;

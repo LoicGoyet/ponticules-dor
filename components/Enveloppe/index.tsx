@@ -60,28 +60,30 @@ const Enveloppe = ({className, result}: Props) => {
         </ol>
       </Header>
       <EnvWrapper className={className} role="button" onClick={handleOpenButton}>
-        <Forefront
-          style={{
-            '--rotation': isOpen ? '-180deg' : '0deg',
-            '--z-index': isOpen ? 1 : 3,
-          }}
-        >
-          <ForefrontLabel style={{'--z-index': isOpen ? 3 : 4}}>
-            {result.category}
-          </ForefrontLabel>
-          <ForefrontTop />
-        </Forefront>
-        <MiddlePlan>
-          <MiddlePlanBottom />
-          <MiddlePlanLeft />
-          <MiddlePlanRight />
-        </MiddlePlan>
-        <Letter
-          style={{'--translateY': isOpen ? '-65%' : '0%'}}
-          header={result.category}
-        >
-          {result.winnerTitle}
-        </Letter>
+        <AbsoluteWrapper>
+          <Forefront
+            style={{
+              '--rotation': isOpen ? '-180deg' : '0deg',
+              '--z-index': isOpen ? 1 : 3,
+            }}
+          >
+            <ForefrontLabel style={{'--z-index': isOpen ? 3 : 4}}>
+              {result.category}
+            </ForefrontLabel>
+            <ForefrontTop />
+          </Forefront>
+          <MiddlePlan>
+            <MiddlePlanBottom />
+            <MiddlePlanLeft />
+            <MiddlePlanRight />
+          </MiddlePlan>
+          <Letter
+            style={{'--translateY': isOpen ? '-60%' : '0%'}}
+            header={result.category}
+          >
+            <Winner>{result.winnerTitle}</Winner>
+          </Letter>
+        </AbsoluteWrapper>
       </EnvWrapper>
       {!!error ? <Error>{error}</Error> : null}
     </Wrapper>
@@ -133,6 +135,15 @@ const EnvWrapper = styled.div`
   position: relative;
   cursor: pointer;
   margin: auto;
+  max-width: 100%;
+`;
+
+const AbsoluteWrapper = styled.div`
+  position: absolute;
+  width: ${fromNumberToPixels(width)};
+  height: ${fromNumberToPixels(height)};
+  left: calc(50% - ${fromNumberToPixels(width / 2)});
+  top: calc(50% - ${fromNumberToPixels(height / 2)});
 `;
 
 const sideSize = getHypotenuse(width / 2, height / 2);
@@ -263,4 +274,11 @@ const Letter = styled(Card)<{
   transition-delay: var(--forefront-animation-duration);
   transition-duration: var(--letter-animation-duration);
   will-change: transform;
+`;
+
+const Winner = styled.div`
+  max-width: 100vw;
+  margin: auto;
+  padding: 0 var(--padding);
+  font-size: clamp(0.5rem, 4vw + 0.5rem, 1.25rem);
 `;

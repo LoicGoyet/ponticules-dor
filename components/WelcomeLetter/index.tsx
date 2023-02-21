@@ -81,11 +81,13 @@ const WelcomeLetter = ({className, result}: Props) => {
             </p>
             <ol>
               <li>
-                Le maitre de cérémonie Tristan Clérin vous présentera en tant que
-                remettant du prix « {result.category} ».
+                Le maitre de cérémonie Tristan Clérin vous présentera en tant que{''}
+                {result.remitter.gender === 'female' ? 'remettante' : 'remettant'} du
+                prix « 
+                {result.category} ».
               </li>
               <li>
-                Avant de lister les nommés pour la categorie « {result.category} »,
+                Avant de lister les nommé·e·s pour la categorie « {result.category} »,
                 prenez une minute pour évoquer à l&apos;audience ce que cette année, ou
                 particulièrement ce que ce prix vous évoque. N&apos;hésitez pas à faire
                 preuve d&apos;humour !
@@ -107,9 +109,8 @@ const WelcomeLetter = ({className, result}: Props) => {
                 </i>
               </li>
               <li>
-                Une fois la phrase précédente prononcée, vous pourrez alors cliquer sur
-                l&apos;enveloppe rouge et prononcer le nom apparaissant sur le bulletin
-                sortant de l&apos;enveloppe.
+                Vous pouvez enfin cliquer sur l&apos;enveloppe rouge et prononcer le nom
+                apparaissant sur le bulletin sortant de l&apos;enveloppe.
               </li>
               <li>
                 Vous pouvez désormais rejoindre le public pour assister à la suite de la

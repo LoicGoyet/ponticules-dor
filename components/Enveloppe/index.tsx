@@ -46,7 +46,9 @@ const Enveloppe = ({className, result}: Props) => {
         Les étapes pour remettre le Ponticule d&apos;Or :
         <ol>
           <li>
-            Tristan vous présentera en tant que remettant du prix « {result.category} ».
+            Tristan vous présentera en tant que{' '}
+            {result.remitter.gender === 'female' ? 'remettante' : 'remettant'} du prix
+            « {result.category} ».
           </li>
           <li>Votre discours</li>
           <li>

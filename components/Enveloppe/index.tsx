@@ -23,7 +23,9 @@ const Enveloppe = ({className, result}: Props) => {
     const isAllowedToUnwrap = new Date().getTime() > unwrapDate.getTime();
 
     if (!isAllowedToUnwrap) {
-      setError("Il n'est pas encore l'heure de révéler lae gagnant·e !");
+      setError(
+        "Il n'est pas encore l'heure de révéler lae gagnant·e ! Rendez-vous Jeudi soir !",
+      );
       return;
     }
 

@@ -37,7 +37,7 @@ const WelcomeLetter = ({className, result}: Props) => {
             10200 Bar-sur-Aube
           </ShipperHeader>
           <Subject>
-            Object : Remise du prix «{result.category}» lors de la première cérémonie
+            Object : Remise du prix « {result.category} » lors de la première cérémonie
             des Ponticules d&apos;Or
           </Subject>
           <Body>
@@ -49,8 +49,8 @@ const WelcomeLetter = ({className, result}: Props) => {
               J&apos;ai l&apos;honneur de vous annoncer que vous avez été{' '}
               {result.remitter.gender === 'female' ? 'désignée' : 'désigné'} par
               l&apos;académie des Ponticule d&apos;Or afin de remettre le prix «
-              {result.category}» lors de la première édition de la cérémonie des
-              Ponticules d&apos;Or qui aura lieu ce{' '}
+              {result.category} » lors de la première édition de la cérémonie des
+              Ponticules d&apos;Or, qui aura lieu ce{' '}
               {unwrapDate.toLocaleDateString('fr-FR', {
                 weekday: 'long',
                 day: 'numeric',
@@ -65,43 +65,43 @@ const WelcomeLetter = ({className, result}: Props) => {
               .
             </p>
             <p>
-              La catégorie «{result.category}» sera la {formatOrdinals(result.order)}{' '}
+              La catégorie « {result.category} » sera la {formatOrdinals(result.order)}{' '}
               décernée durant la soirée.
             </p>
             <p>
               Ci-joint à cette lettre, vous trouverez une enveloppe rouge contenant le
-              lauréat du prix «{result.category}» que vous ne pourrez ouvrir qu&apos;à
+              lauréat du prix « {result.category} » que vous ne pourrez ouvrir qu&apos;à
               la date de la cérémonie. Pour ouvrir cette enveloppe, vous n&apos;aurez
               qu&apos;à cliquer dessus.
             </p>
             <p>
-              Cette cérémonie, à l&apos;image de tout les prix les plus prestigieux,
+              Cette cérémonie, à l&apos;image de tous les prix les plus prestigieux,
               suit un protocole strict. Voici les consignes pour bien remettre votre
               prix :
             </p>
             <ol>
               <li>
-                Le maitre de cérémonie Tristan Clérin, vous présentera en tant que
-                remettant du prix «{result.category}».
+                Le maitre de cérémonie Tristan Clérin vous présentera en tant que
+                remettant du prix « {result.category} ».
               </li>
               <li>
-                Avant de lister les nommés pour la category «{result.category}», prennez
-                2 à 3 minutes pour évoquer à l&apos;audience ce que cette année, ou
-                particulièrement ce prix vous évoque. N&apos;hésitez pas à faire preuve
-                d&apos;humour !
+                Avant de lister les nommés pour la categorie « {result.category} »,
+                prenez une minute pour évoquer à l&apos;audience ce que cette année, ou
+                particulièrement ce que ce prix vous évoque. N&apos;hésitez pas à faire
+                preuve d&apos;humour !
               </li>
               <li>
                 Lorsque vous aurez fini, vous pourrez introduire le clip de présentation
                 des nommé·e·s par la phrase :{' '}
-                <i>Pour la categorie «{result.category}», les nommé·e·s sont :</i>
+                <i>Pour la categorie « {result.category} », les nommé·e·s sont :</i>
               </li>
               <li>
                 Une fois le clip de présentation des nommé·e·s terminé, vous pourrez
-                alors dévoiler la·le lauréat·e du prix «{result.category}» en commençant
-                par prononcer la phrase :{' '}
+                alors dévoiler la·le lauréat·e du prix « {result.category} » en
+                commençant par prononcer la phrase :{' '}
                 <i>
                   Et la·le lauréat·e du Ponticule d&apos;Or pour la catégorie «
-                  {result.category}» est :
+                  {result.category} » est :
                 </i>
               </li>
               <li>

@@ -62,7 +62,7 @@ const results: Record<string, Result> = {
   DKçJf: {
     id: 'DKçJf',
     order: 5,
-    category: 'La meilleur « apparition dans une vidéo » de l’année',
+    category: 'La meilleure apparition dans une vidéo de l’année',
     winnerTitle:
       'La personne qui ressemble à Coco dans le flashmob Pirates & Princesses de AAD',
     remitter: {

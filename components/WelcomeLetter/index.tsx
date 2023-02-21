@@ -109,7 +109,7 @@ const WelcomeLetter = ({className, result}: Props) => {
                 </i>
               </li>
               <li>
-                Vous pouvez enfin cliquer sur l&apos;enveloppe rouge et prononcer le nom
+                Enfin cliquez sur l&apos;enveloppe rouge et prononcez le résultat
                 apparaissant sur le bulletin sortant de l&apos;enveloppe.
               </li>
               <li>

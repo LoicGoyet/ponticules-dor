@@ -133,10 +133,10 @@ const results: Record<string, Result> = {
   kdh8hf: {
     id: 'kdh8hf',
     order: 12,
-    category: 'Le connard / la connasse de l’année',
+    category: 'Lae connard·asse de l’année',
     winnerTitle: 'Léatchoum',
     remitter: {
-      name: 'Coco',
+      name: 'éParcurien',
       gender: 'female',
     },
   },

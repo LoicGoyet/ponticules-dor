@@ -77,7 +77,7 @@ const WelcomeLetter = ({className, result}: Props) => {
             <p>
               Cette cérémonie, à l&apos;image de tous les prix les plus prestigieux,
               suit un protocole strict. Voici les consignes pour bien remettre votre
-              prix :
+              prix :
             </p>
             <ol>
               <li>
@@ -88,20 +88,22 @@ const WelcomeLetter = ({className, result}: Props) => {
                 Avant de lister les nommés pour la categorie « {result.category} »,
                 prenez une minute pour évoquer à l&apos;audience ce que cette année, ou
                 particulièrement ce que ce prix vous évoque. N&apos;hésitez pas à faire
-                preuve d&apos;humour !
+                preuve d&apos;humour !
               </li>
               <li>
                 Lorsque vous aurez fini, vous pourrez introduire le clip de présentation
-                des nommé·e·s par la phrase :{' '}
-                <i>Pour la categorie « {result.category} », les nommé·e·s sont :</i>
+                des nommé·e·s par la phrase :{' '}
+                <br />
+                <i>Pour la categorie « {result.category} », les nommé·e·s sont :</i>
               </li>
               <li>
                 Une fois le clip de présentation des nommé·e·s terminé, vous pourrez
                 alors dévoiler la·le lauréat·e du prix « {result.category} » en
-                commençant par prononcer la phrase :{' '}
+                commençant par prononcer la phrase :{' '}
+                <br />
                 <i>
-                  Et la·le lauréat·e du Ponticule d&apos;Or pour la catégorie «
-                  {result.category} » est :
+                  Et la·le lauréat·e du Ponticule d&apos;Or pour la catégorie « 
+                  {result.category} » est :
                 </i>
               </li>
               <li>

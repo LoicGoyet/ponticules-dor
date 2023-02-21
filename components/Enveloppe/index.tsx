@@ -46,14 +46,13 @@ const Enveloppe = ({className, result}: Props) => {
           <li>
             Tristan vous présentera en tant que remettant du prix «{result.category}».
           </li>
-          <li>Votre discour</li>
+          <li>Votre discours</li>
           <li>
             <i>Pour la categorie «{result.category}», les nommé·e·s sont :</i>
           </li>
           <li>
             <i>
-              Et la·le lauréat·e du Ponticule d&apos;Or pour la catégorie «
-              {result.category}» est :
+              Et la·le lauréat·e du Ponticule d&apos;Or pour «{result.category}» est :
             </i>
           </li>
           <li>Ouvrez l&apos;enveloppe et annoncez le nom du lauréat</li>

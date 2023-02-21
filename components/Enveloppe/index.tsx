@@ -97,19 +97,17 @@ export default Enveloppe;
 
 const Wrapper = styled.div`
   position: relative;
+  overflow: hidden;
+  max-width: 100vw;
 `;
 
 const Header = styled.div`
-  position: absolute;
-  bottom: 100%;
-  margin-bottom: 2rem;
   color: grey;
   width: 100%;
   text-align: center;
   font-size: 0.8em;
-  left: -4rem;
-  right: -4rem;
-  width: calc(100% + 8rem);
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
 
   ol {
     text-align: left;
@@ -134,6 +132,7 @@ const EnvWrapper = styled.div`
   height: ${fromNumberToPixels(height)};
   position: relative;
   cursor: pointer;
+  margin: auto;
 `;
 
 const sideSize = getHypotenuse(width / 2, height / 2);

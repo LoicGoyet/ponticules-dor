@@ -123,6 +123,11 @@ const WelcomeLetter = ({className, result}: Props) => {
           <Greetings>
             Je vous prie d’agréer mes salutations les plus distinguées
           </Greetings>
+
+          <EnveloppeButton onClick={handleButtonClick}>
+            Voir l&apos;enveloppe
+          </EnveloppeButton>
+
           <Signature>
             <Image
               src="/images/sylvie-signature.png"
@@ -134,9 +139,6 @@ const WelcomeLetter = ({className, result}: Props) => {
             <br />
             présidente de l&apos;Académie des Ponticules d&apos;Or
           </Signature>
-          <EnveloppeButton onClick={handleButtonClick}>
-            Voir l&apos;enveloppe
-          </EnveloppeButton>
         </Grid>
       </Container>
     </Letter>
@@ -165,6 +167,10 @@ const Letter = styled(Card)<{
   transition-property: opacity, transform;
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
+
+  @media (max-width: 600px) {
+    --padding: 1rem;
+  }
 `;
 
 const Container = styled.div`
@@ -215,6 +221,6 @@ const Signature = styled.div`
 `;
 
 const EnveloppeButton = styled(Button)`
-  margin: 5rem 0 5rem;
+  margin: 3rem 0;
   align-self: center;
 `;

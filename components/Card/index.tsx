@@ -10,7 +10,7 @@ type Props = {
 
 const Card = ({className, children, header, style}: Props) => {
   return (
-    <Wrapper className={className} style={style}>
+    <Wrapper style={style} className={className}>
       {header && <Header>{header}</Header>}
       {children}
     </Wrapper>

@@ -134,9 +134,9 @@ const results: Record<string, Result> = {
     id: 'kdh8hf',
     order: 12,
     category: 'Lae connard·asse de l’année',
-    winnerTitle: 'Léatchoum',
+    winnerTitle: 'éParcurien',
     remitter: {
-      name: 'éParcurien',
+      name: 'Léatchoum',
       gender: 'female',
     },
   },
